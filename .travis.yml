@@ -4,9 +4,8 @@ before_script:
  - chmod +x configure
 
 script:
- - pwd
  - ./configure
- - make
+ - make -j4
 
  env:
   global:
@@ -20,6 +19,6 @@ addons:
       name: "NRCocker/cgiemail-1.6"
       description: "CGIEmail Scan"
     notification_email: nrcocker@idamconsulting.co.uk
-    build_command_prepend: "./configure; make clean"
-    build_command:   "make -j 4"
+    build_command_prepend: "./configure"
+    build_command:   "make -j4"
     branch_pattern: coverity_scan
