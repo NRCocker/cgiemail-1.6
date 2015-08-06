@@ -1,2 +1,5 @@
 language: c
-script: cd cgiemail-1.6 & ./configure & make
+script:
+ - cwd
+ - ./configure
+ - make
