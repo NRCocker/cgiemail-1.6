@@ -7,3 +7,19 @@ script:
  - pwd
  - ./configure
  - make
+
+ env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "xufr0ydAtKlQoF1AicibllMOclBXZfRNXOY1MMa4vYC7C85Ehd1aLPtLFPtUaXG6mb8Eao2HF1mA+tJ709CfPVF7FhI9q+dN4i9EzP7FYwaGqj1fyJryK3iXKgwirE3IBMH+RE0wFe7NCacJnp+hEPjdcpHcmPZGnzDp4Mup21S600bWAhzpkwAM64P/rg+mU6vc6By9AYRuu4Cqw0nNKRrz6uVvvUHzg8VvY6/iu5I0HS8TXbdCKVatMHrbiAN7CU1Ph67+wBKqPvntM0MJP21fG9tkA/xp7gfj34YjgsK45fT9K8UaXnzOu26SQYNDoGeWvKYHnB2febR3E5xUxfNPNOAupBlclSFERn2wbMwumluFA+OnTQhk0Yn7zCEeudjS4nx7w9Wwvami/HN8Cff3MqZBylr+qn7EigoiIXGKqDA+8tYgPOM71xosz/qSwzPkFNQYbxtudFg/eAXfkZlB6AQ19Orh7bk1IpMPJYRqnB2EK67GS2FwqVD0SVicfw3HmHVv5J4xTeitJRmzhVKS1NmRC4MU/uNqNr/VuExqNnIb1ZKayW6+tcdeqFoR9odjYZjsHkj/i8MwED5Qh/2fkT7ug3+zHipoM9zOKTuqiLmlaGRow2eZiUhaKiJ4A1tVMdrD7Skn5PbIwIOkMyg2NlBpF26nvrqddGFmC1Q="
+
+addons:
+  coverity_scan:
+    project:
+      name: "NRCocker/cgiemail-1.6"
+      description: "CGIEmail Scan"
+    notification_email: nrcocker@idamconsulting.co.uk
+    build_command_prepend: "./configure; make clean"
+    build_command:   "make -j 4"
+    branch_pattern: coverity_scan
